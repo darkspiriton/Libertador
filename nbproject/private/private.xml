@@ -5,9 +5,13 @@
         <group>
             <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/webservices/LibertadorWS.java</file>
             <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/dao/HibernateUtil.java</file>
+            <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/interfaz/AlumnoIF.java</file>
             <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/pojos/Recibo.java</file>
             <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/dao/AlumnoDAO.java</file>
+            <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/bean/AlumnoBean.java</file>
             <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/pojos/Alumno.java</file>
+            <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/metodo/ConnectionMySQL.java</file>
+            <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/com/libertador/dao/AlumnoBeanDAO.java</file>
             <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/hibernate.cfg.xml</file>
             <file>file:/D:/Programas/Projects/NetBeans/Libertador/src/java/hibernate.reveng.xml</file>
         </group>

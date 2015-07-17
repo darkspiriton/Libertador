@@ -5,11 +5,11 @@
  */
 package com.libertador.webservices;
 
-import com.libertador.dao.AlumnoDAO;
-import com.libertador.pojos.Alumno;
-import java.util.HashSet;
+import com.libertador.bean.AlumnoBean;
+import com.libertador.bean.ReciboPagoBean;
+import com.libertador.dao.AlumnoBeanDAO;
+import com.libertador.dao.ReciboPagoBeanDAO;
 import java.util.List;
-import java.util.Set;
 import javax.jws.WebService;
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -23,34 +23,43 @@ public class LibertadorWS {
 
     /**
      * Web service operation
+     * @param dni
+     * @param nombre
+     * @param apellido
+     * @return 
      */
     @WebMethod(operationName = "RegistrarAlumno")
     public String RegistrarAlumno(@WebParam(name = "dni") int dni, @WebParam(name = "nombre") String nombre, @WebParam(name = "apellido") String apellido) {
-        Set recibos = new HashSet(0);
-        Alumno a = new Alumno(dni,nombre,apellido,recibos);
-        AlumnoDAO alumnoDAO = new AlumnoDAO();
-        alumnoDAO.registrarAlumno(a);
-        return "Producto ingresado";
         
+        AlumnoBean a = new AlumnoBean(dni,nombre,apellido);
+        AlumnoBeanDAO alumnoBeanDAO = new AlumnoBeanDAO();
+        alumnoBeanDAO.registrarAlumno(a);
+        return "Alumno registrado";
+        
+    }
+
+
+    /**
+     * Web service operation
+     * @param dni
+     * @return 
+     */
+    @WebMethod(operationName = "importarRegistroPago")
+    public List<ReciboPagoBean> importarRegistroPago(@WebParam(name = "dni") int dni) {
+        ReciboPagoBeanDAO recibo = new ReciboPagoBeanDAO();
+        return recibo.buscarReciboPago(dni);
     }
 
     /**
      * Web service operation
+     * @param dni
+     * @return 
      */
-    @WebMethod(operationName = "buscarAlumno")
-    public String buscarAlumno(@WebParam(name = "dni") int dni) {
-        AlumnoDAO alumnoDAO = new AlumnoDAO();
-        return alumnoDAO.consultarAlumno(dni);
+    @WebMethod(operationName = "BuscarRegistroPago")
+    public List BuscarRegistroPago(@WebParam(name = "dni") int dni) {
+        //TODO write your implementation code here:
+        return null;
     }
 
-    /**
-     * Web service operation
-     */
-    @WebMethod(operationName = "ConsultarAlumnos")
-    public List ConsultarAlumnos() {
-        AlumnoDAO alumnoDAO = new AlumnoDAO();
-        List<Alumno> listaAlumnos = alumnoDAO.verAlumno();
-        return listaAlumnos;
-        
-    }
+
 }
