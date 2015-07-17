@@ -15,4 +15,5 @@ import java.util.List;
 public interface ReciboPagoIF {
     public List<ReciboPagoBean> buscarReciboPago(int dni);
     public void importarReciboPago(); 
+    public void guardarReciboPagoBD(ReciboPagoBean r);
 }

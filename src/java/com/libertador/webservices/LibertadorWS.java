@@ -41,24 +41,22 @@ public class LibertadorWS {
 
     /**
      * Web service operation
-     * @param dni
-     * @return 
      */
-    @WebMethod(operationName = "importarRegistroPago")
-    public List<ReciboPagoBean> importarRegistroPago(@WebParam(name = "dni") int dni) {
+    @WebMethod(operationName = "ImportarRegistroPago")
+    public String ImportarRegistroPago() {
         ReciboPagoBeanDAO recibo = new ReciboPagoBeanDAO();
-        return recibo.buscarReciboPago(dni);
+        recibo.importarReciboPago();
+        
+        return "Importe realizado correctamente";
     }
 
     /**
      * Web service operation
-     * @param dni
-     * @return 
      */
     @WebMethod(operationName = "BuscarRegistroPago")
     public List BuscarRegistroPago(@WebParam(name = "dni") int dni) {
-        //TODO write your implementation code here:
-        return null;
+        ReciboPagoBeanDAO recibo = new ReciboPagoBeanDAO();
+        return recibo.buscarReciboPago(dni);
     }
 
 

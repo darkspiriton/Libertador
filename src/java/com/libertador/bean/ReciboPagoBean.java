@@ -13,17 +13,19 @@ public class ReciboPagoBean {
     private int cod;
     private int dni;
     private int monto;
+    private String estado;
 
-    public ReciboPagoBean() {
-    }
-
-    public ReciboPagoBean(int cod, int dni, int monto) {
+    public ReciboPagoBean(int cod, int dni, int monto, String estado) {
         this.cod = cod;
         this.dni = dni;
         this.monto = monto;
+        this.estado = estado;
+    }
+    
+    public ReciboPagoBean() {
     }
 
-    public int getCod() {
+     public int getCod() {
         return cod;
     }
 
@@ -45,5 +47,12 @@ public class ReciboPagoBean {
 
     public void setMonto(int monto) {
         this.monto = monto;
+    }
+     public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 }
