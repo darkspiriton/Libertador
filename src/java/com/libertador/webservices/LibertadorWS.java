@@ -45,8 +45,7 @@ public class LibertadorWS {
     @WebMethod(operationName = "ImportarRegistroPago")
     public String ImportarRegistroPago() {
         ReciboPagoBeanDAO recibo = new ReciboPagoBeanDAO();
-        recibo.importarReciboPago();
-        
+        recibo.importarReciboPago();   
         return "Importe realizado correctamente";
     }
 
@@ -54,10 +53,9 @@ public class LibertadorWS {
      * Web service operation
      */
     @WebMethod(operationName = "BuscarRegistroPago")
-    public List BuscarRegistroPago(@WebParam(name = "dni") int dni) {
-        ReciboPagoBeanDAO recibo = new ReciboPagoBeanDAO();
+    public String BuscarRegistroPago(@WebParam(name = "dni") int dni) {
+        ReciboPagoBeanDAO recibo = new ReciboPagoBeanDAO();      
         return recibo.buscarReciboPago(dni);
     }
-
 
 }

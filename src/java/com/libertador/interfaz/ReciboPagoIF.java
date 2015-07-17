@@ -13,7 +13,7 @@ import java.util.List;
  * @author StOn
  */
 public interface ReciboPagoIF {
-    public List<ReciboPagoBean> buscarReciboPago(int dni);
+    public String buscarReciboPago(int dni);
     public void importarReciboPago(); 
     public void guardarReciboPagoBD(ReciboPagoBean r);
 }

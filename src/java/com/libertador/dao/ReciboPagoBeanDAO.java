@@ -13,8 +13,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.List;
 import org.apache.activemq.*;
 import javax.jms.*;
 
@@ -26,13 +24,13 @@ public class ReciboPagoBeanDAO implements ReciboPagoIF{
     ConnectionMySQL mysql = new ConnectionMySQL();
     
     @Override
-    public List buscarReciboPago(int dni) {
+    public String buscarReciboPago(int dni) {
         Connection con = null;
 	ResultSet rs = null;
 	PreparedStatement pstmt = null;
         String sql="SELECT * FROM libertador.recibo where alumno_dni=?;";    
-        List<ReciboPagoBean> lrecibo= new <ReciboPagoBean>ArrayList();
-        
+        String lista = "";
+                
                  try {
 			con = mysql.getConnection();
 			pstmt = con.prepareStatement(sql);		
@@ -40,7 +38,8 @@ public class ReciboPagoBeanDAO implements ReciboPagoIF{
 			rs = pstmt.executeQuery();
                         
 			while ( rs.next() ) {
-                            lrecibo.add( new ReciboPagoBean(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getString(4)));
+                            
+                            lista =lista+rs.getInt(1)+"/"+rs.getInt(2)+"/"+rs.getInt(3)+"/"+rs.getString(4)+"-";
                         }
                         
 		} catch (SQLException e) {
@@ -55,7 +54,7 @@ public class ReciboPagoBeanDAO implements ReciboPagoIF{
 			}
 		}
    
-        return lrecibo; 
+        return lista; 
 
     }
 
